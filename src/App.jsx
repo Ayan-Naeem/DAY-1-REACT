@@ -1,4 +1,6 @@
 import { useState } from "react";
+import Header from "./components/header"
+import Routes from "./routes"
 
 export default function App() {
   const [signupData, setSignupData] = useState({ name: "", email: "", password: "" });
@@ -52,13 +54,12 @@ export default function App() {
 
   return (
     <div style={{ padding: "30px", fontFamily: "sans-serif" }}>
+      <Routes />
       {currentUser ? (
-        <>
-          <h2>Welcome, {currentUser.name}! 🎉</h2>
-          <button onClick={logout}>Logout</button>
-        </>
+            <><Header /><h2>Welcome, {currentUser.name}! 🎉</h2><button onClick={logout}>Logout</button></>
       ) : (
         <>
+        <div>
           <h2>Signup</h2>
           <input
             type="text"
@@ -104,6 +105,7 @@ export default function App() {
           /><br/><br/>
 
           <button onClick={handleLogin}>Login</button>
+        </div>
         </>
       )}
     </div>
